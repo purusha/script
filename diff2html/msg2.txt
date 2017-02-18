@@ -1,0 +1,21 @@
+MIME-Version: 1.0
+Received: by 10.79.11.130 with HTTP; Sat, 18 Feb 2017 06:24:25 -0800 (PST)
+Date: Sat, 19 Feb 2017 15:24:25 +0100
+Delivered-To: alanprog@gmail.com
+Message-ID: <CAGFWaLUa0D3FVd3_n4MvjjsQTzw764JLSXseqxKKTr9t1Q6gJA@mail.gmail.com>
+Subject: test
+From: Alan Toro <alanprog@gmail.com>
+To: Alan Toro <alanprog@gmail.com>
+Content-Type: multipart/alternative; boundary=001a113d4a0c90bb9c0548cec9fc
+
+--001a113d4a0c90bb9c0548cec9fc
+Content-Type: text/plain; charset=UTF-8
+
+this is only one test ... msg2
+
+--001a113d4a0c90bb9c0548cec9fc
+Content-Type: text/html; charset=UTF-8
+
+<div dir="ltr">this is only one test ... msg2<br></div>
+
+--001a113d4a0c90bb9c0548cec9fc--
