@@ -1,0 +1,4 @@
+
+My git grog (or “graphical log”) alias has evolved over the years to the point where I’m no longer sure I understand exactly what it does. But it sure looks pretty.
+
+$ git config --global alias.grog 'log --graph --abbrev-commit --decorate --all --format=format:"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)"'
