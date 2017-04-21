@@ -1,0 +1,14 @@
+set -x
+NOW=$(date +"%Y%m%d")
+
+cd /home/developer/project && git pull
+git --git-dir=/home/developer/project/.git --work-tree=/home/developer/project status >> /home/developer/project-report/$NOW.report
+echo "-----------------------------------------------------------------------" >> /home/developer/project-report/$NOW.report
+
+cd /home/developer/project-report
+grep -r -C3 "@Test" /home/developer/project >> /home/developer/project-report/$NOW.report
+grep -r "@Test" /home/developer/project | wc -l >> /home/developer/project-report/$NOW.report
+echo "-----------------------------------------------------------------------" >> /home/developer/project-report/$NOW.report
+grep -r -C3 "@Ignore" /home/developer/project >> /home/developer/project-report/$NOW.report
+grep -r "@Ignore" /home/developer/project | wc -l >> /home/developer/project-report/$NOW.report
+echo "-----------------------------------------------------------------------" >> /home/developer/project-report/$NOW.report
