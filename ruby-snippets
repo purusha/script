@@ -16,6 +16,11 @@ end
 
 ------------------------------------------------------------------------------------------------------
 
+a_multiline_string = %Q{ 
+  The city is #{city}. 
+  The temp is #{5.0/9.0 * (temp_f - 32)} C 
+}
+
 # Output
 " \n  The city is Butwal. \n  The temp is 40.55555555555556 C \n"
 
