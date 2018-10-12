@@ -1,7 +1,12 @@
 
+# springboot docs for all version
 https://docs.spring.io/spring-boot/docs/
 
+# how to run springboot application
 https://dzone.com/articles/five-ways-of-running-spring-boot-application
 
+# init
 https://spring.io/guides/gs/spring-boot/
 
+# This project provides bridges between Spring and Guice so that you can use one from the other (and vice versa)
+https://github.com/spring-projects/spring-guice
