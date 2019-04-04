@@ -1,0 +1,12 @@
+#!/bin/bash
+meld "$2" "$5"
+
+
+# activate
+# git config --global diff.external git-meld
+
+# de activate
+# git config --global --unset diff.external
+
+# this script must be in the PATH variable !!
+
