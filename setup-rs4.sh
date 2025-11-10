@@ -75,7 +75,8 @@ apt install -y \
     python3-pip \
     python3-venv \
     python3-dev \
-    python3-setuptools
+    python3-setuptools \
+    screen
 
 # ============================================
 # 4. CONFIGURAZIONE PYTHON
@@ -315,7 +316,40 @@ chmod +x /home/pi/scripts/update-system.sh
 chown -R pi:pi /home/pi/scripts
 
 # ============================================
-# 14. CONFIGURAZIONE .bashrc
+# 14. CONFIGURAZIONE SCREEN
+# ============================================
+log_info "Configurazione Screen..."
+
+# Configurazione .screenrc
+cat > /home/pi/.screenrc << 'EOF'
+# Configurazione Screen
+startup_message off
+defscrollback 10000
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W}%c %{g}]'
+vbell off
+
+# Keybindings utili
+bind c screen 1
+bind ^c screen 1
+bind 0 select 10
+
+# Logging
+deflog on
+logfile /home/pi/.screen/screenlog.%n
+
+# Encoding
+defutf8 on
+EOF
+
+# Crea directory per i log di screen
+mkdir -p /home/pi/.screen
+chown pi:pi /home/pi/.screenrc /home/pi/.screen
+
+log_info "Screen configurato!"
+
+# ============================================
+# 15. CONFIGURAZIONE .bashrc
 # ============================================
 log_info "Configurazione .bashrc..."
 cat >> /home/pi/.bashrc << 'EOF'
@@ -339,12 +373,17 @@ alias ct='cargo test'
 alias cc='cargo check'
 alias cf='cargo fmt'
 
+# Screen aliases
+alias sls='screen -ls'
+alias sr='screen -r'
+alias sn='screen -S'
+
 # Mostra temperatura all'avvio
 vcgencmd measure_temp
 EOF
 
 # ============================================
-# 15. INFORMAZIONI SISTEMA
+# 16. INFORMAZIONI SISTEMA
 # ============================================
 log_info "Installazione strumento info sistema..."
 cat > /usr/local/bin/rpi-info << 'EOF'
@@ -383,7 +422,7 @@ EOF
 chmod +x /usr/local/bin/rpi-info
 
 # ============================================
-# 16. CONFIGURAZIONE HOSTNAME (OPZIONALE)
+# 17. CONFIGURAZIONE HOSTNAME (OPZIONALE)
 # ============================================
 read -p "Vuoi cambiare hostname? (s/n) " -n 1 -r
 echo
